@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+		<!-- Add the transpiler -->
+		<script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+    	<script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
+    	<script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+
+	</head>
+	<body>
+		<!-- Declare ES6 module here-->
+		<script type="module">
+			import * as container from "./js/contact.js";
+			import * as appContainer from "./js/app.js";
+
+			var contact = new container.Contact("Jose", "Hernandez", "(213) 210-8717", "jose@wiredrive.com");
+			var application = new appContainer.App(contact);
+
+			localStorage.setItem("application", JSON.stringify(application));
+
+			debugger;
+		</script>
+
+		<div class="container">
+
+			<div class="row">
+				<h1 class="title">Contact App</h1>
+			</div>
+
+			<div class="row">
+				<table class="table table-striped table-hover">
+					<thead>
+						<th>First</th>
+						<th>Last</th>
+						<th>Phone Number</th>
+						<th>Email</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Jose</td>
+							<td>Hernandez</td>
+							<td>(213) 555-8717</td>
+							<td>jose@wiredrive.com</td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<input type="button" class="btn btn-primary" value="Add" />
+								<input type="button" class="btn btn-danger" value="Cancel" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<script>
+			var application = JSON.parse(localStorage.getItem("application"));
+			debugger;
+		</script>
+	</body>
+</html>
